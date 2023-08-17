@@ -88,22 +88,20 @@ app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 
 app.add_template_global("HTTPBIN_TRACKING" in os.environ, name="tracking_enabled")
 
-app.config["SWAGGER"] = {"title": "httpbin.org", "uiversion": 3}
+app.config["SWAGGER"] = {"title": "HTTPBin - Grafana k6", "uiversion": 3}
 
 template = {
     "swagger": "2.0",
     "info": {
-        "title": "httpbin.org",
+        "title": "Grafana k6 HTTPBin sandbox",
         "description": (
-            "A simple HTTP Request & Response Service."
-            "<br/> <br/> <b>Run locally: </b> <code>$ docker run -p 80:80 kennethreitz/httpbin</code>"
+            "A simple HTTP Request & Response Service, forked from <a href=\"https://httpbin.org/\" target=\"_blank\">HTTPBin</a>."
+            "<br/>"
+            "<br/>Try the different HTTP requests below and observe their responses. Each option displays its corresponding `curl` command and response."
+            "<br/>Use these examples to generate the requests with the <a href=\"https://k6.io/docs/javascript-api/k6-http/\" target=\"_blank\">k6 HTTP API</a> and validate their responses, helping you become familiar with k6."
+            "<br/> <br/> Additionally, you can deploy this project or run it locally using its Docker image. Learn more about this project in its <a href=\"https://github.com/grafana/httpbin\" target=\"_blank\">Readme</a>."
+            "<br/> <br/> <i>Note that this is a shared testing environment - please avoid high-load tests.</i>"
         ),
-        "contact": {
-            "responsibleOrganization": "Kenneth Reitz",
-            "responsibleDeveloper": "Kenneth Reitz",
-            "email": "me@kennethreitz.org",
-            "url": "https://kennethreitz.org",
-        },
         # "termsOfService": "http://me.com/terms",
         "version": version,
     },
