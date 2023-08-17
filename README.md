@@ -1,31 +1,22 @@
-# httpbin(1): HTTP Request & Response Service
+# Grafana k6 httpbin: HTTP Request & Response Service
+
+An HTTPBin site to help you familiarize yourself with k6, deployed at https://k6-bin.grafana.fun/.
+
+This project is a fork of [httpbin](https://github.com/kennethreitz/httpbin) by [Kenneth Reitz](http://kennethreitz.org/bitcoin).
 
 
-A [Kenneth Reitz](http://kennethreitz.org/bitcoin) Project.
+## Run in Docker
 
-![ice cream](http://farm1.staticflickr.com/572/32514669683_4daf2ab7bc_k_d.jpg)
+You can run this project locally by building its docker image:
 
-Run locally:
+```sh
+docker build -t k6-httpbin .
+docker run -d -p 8080:8080 k6-httpbin
+```
+
+or use the original docker image:
+
 ```sh
 docker pull kennethreitz/httpbin
 docker run -p 80:80 kennethreitz/httpbin
 ```
-
-See http://httpbin.org for more information.
-
-## Officially Deployed at:
-
-- http://httpbin.org
-- https://httpbin.org
-- https://hub.docker.com/r/kennethreitz/httpbin/
-
-
-## SEE ALSO
-
-- http://requestb.in
-- http://python-requests.org
-- https://grpcb.in/
-
-## Build Status
-
-[![Build Status](https://travis-ci.org/requests/httpbin.svg?branch=master)](https://travis-ci.org/requests/httpbin)
