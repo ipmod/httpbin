@@ -7,7 +7,7 @@ This project is a fork of [httpbin](https://github.com/kennethreitz/httpbin) by 
 
 ## Run in Docker
 
-You can run this project locally by building its docker image:
+You can deploy or run this project locally by building its docker image:
 
 ```sh
 docker build -t k6-httpbin .
