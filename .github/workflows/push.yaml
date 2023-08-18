@@ -39,4 +39,4 @@ jobs:
         with:
           username: ${{ secrets.K6_DOCKERHUB_USERNAME }}
           password: ${{ secrets.K6_DOCKERHUB_TOKEN }}
-          repository: grafana/httpbin
+          repository: grafana/k6-httpbin
