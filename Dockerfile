@@ -8,7 +8,7 @@ LABEL org.kennethreitz.vendor="Kenneth Reitz"
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
-RUN apt update -y && apt install python3-pip git -y && pip3 install --no-cache-dir pipenv
+RUN apt update -y && apt install python3-pip libffi-dev git -y && pip3 install --no-cache-dir pipenv==2022.4.8
 
 ADD Pipfile Pipfile.lock /httpbin/
 WORKDIR /httpbin
@@ -17,6 +17,11 @@ RUN /bin/bash -c "pip3 install --no-cache-dir -r <(pipenv lock -r)"
 ADD . /httpbin
 RUN pip3 install --no-cache-dir /httpbin
 
-EXPOSE 8080
+ARG PORT=8080
+ENV PORT $PORT
+EXPOSE $PORT
 
-CMD ["gunicorn", "-b", "0.0.0.0:8080", "httpbin:app", "-k", "gevent"]
+ARG options
+ENV OPTIONS $options
+
+CMD exec gunicorn $OPTIONS --bind :$PORT -k gevent httpbin:app
