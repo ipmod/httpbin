@@ -7,16 +7,13 @@ This project is a fork of [httpbin](https://github.com/kennethreitz/httpbin) by 
 
 ## Run in Docker
 
-You can deploy or run this project locally by building its docker image:
+You can deploy or run this project locally using the [`grafana/k6-httpbin` Docker Image](https://hub.docker.com/r/grafana/k6-httpbin):
 
 ```sh
-docker build -t k6-httpbin .
-docker run -d -p 8080:8080 k6-httpbin
+docker pull grafana/k6-httpbin
+docker run -d -p 8080:8080 grafana/k6-httpbin
 ```
 
-or use the original docker image:
+> When running on Mac M1, pass the option: `--platform linux/x86_64`  
 
-```sh
-docker pull kennethreitz/httpbin
-docker run -p 80:80 kennethreitz/httpbin
-```
+You should now be able to access it at http://localhost:8080/
