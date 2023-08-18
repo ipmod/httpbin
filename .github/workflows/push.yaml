@@ -11,6 +11,9 @@ jobs:
     name: "Build"
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -27,6 +30,7 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: true
           tags: grafana/k6-httpbin:latest,grafana/k6-httpbin:${{ github.event.release.tag_name }}
   
