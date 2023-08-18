@@ -11,9 +11,15 @@ You can deploy or run this project locally using the [`grafana/k6-httpbin` Docke
 
 ```sh
 docker pull grafana/k6-httpbin
-docker run -d -p 8080:8080 grafana/k6-httpbin
+docker run -p 8080:8080 grafana/k6-httpbin
 ```
 
 > When running on Mac M1, pass the option: `--platform linux/x86_64`  
 
 You should now be able to access it at http://localhost:8080/
+
+For development, use `docker-compose`:
+
+```sh
+docker-compose up -d
+```
