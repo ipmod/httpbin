@@ -1,6 +1,6 @@
 # k6 HTTPBin Play: HTTP Request & Response Service
 
-An HTTPBin site to help you familiarize yourself with k6, deployed at https://k6-bin.grafana.fun/.
+An HTTPBin site to help you familiarize yourself with k6, deployed at https://k6-http.grafana.fun/.
 
 This project is a fork of [httpbin](https://github.com/kennethreitz/httpbin) by [Kenneth Reitz](http://kennethreitz.org/bitcoin).
 
