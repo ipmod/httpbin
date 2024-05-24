@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+ARG PORT=80
+
 LABEL name="httpbin"
 LABEL version="0.9.2"
 LABEL description="A simple HTTP service."
@@ -17,6 +19,6 @@ RUN /bin/bash -c "pip3 install --no-cache-dir -r <(pipenv lock -r)"
 ADD . /httpbin
 RUN pip3 install --no-cache-dir /httpbin
 
-EXPOSE 80
+EXPOSE $PORT
 
-CMD ["gunicorn", "-b", "0.0.0.0:80", "httpbin:app", "-k", "gevent"]
+CMD ["gunicorn", "-b", "0.0.0.0:$PORT", "httpbin:app", "-k", "gevent"]
